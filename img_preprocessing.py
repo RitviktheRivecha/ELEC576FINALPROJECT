@@ -41,7 +41,7 @@ for filename in tqdm(sampled_files):
         img_resized.save(output_path, format="JPEG")
         annotations.append({
             "image": filename,
-            "caption": "A hand on a blank white background."
+            "caption": "A hand against a blank white background."
         })
     except Exception as e:
         print(f"Error processing {filename}: {e}")
