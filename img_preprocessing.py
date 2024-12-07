@@ -16,7 +16,7 @@ print(f"OUTPUT_DIR: {OUTPUT_DIR}")
 
 #resize
 TARGET_SIZE = (256, 256)
-NUM_IMAGES_TO_SAMPLE = 1000
+NUM_IMAGES_TO_SAMPLE = 100
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 PROCESSED_IMAGES_DIR = os.path.join(OUTPUT_DIR, "images")
@@ -41,7 +41,7 @@ for filename in tqdm(sampled_files):
         img_resized.save(output_path, format="JPEG")
         annotations.append({
             "image": filename,
-            "caption": "A hand."
+            "caption": "A hand on a blank white background."
         })
     except Exception as e:
         print(f"Error processing {filename}: {e}")
