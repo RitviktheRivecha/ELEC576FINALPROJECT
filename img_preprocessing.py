@@ -24,7 +24,7 @@ os.makedirs(PROCESSED_IMAGES_DIR, exist_ok=True)
 
 annotations = []
 
-#fixed sample of 1000 images
+#fixed sample of 100 images
 print("Sampling images...")
 all_files = [f for f in os.listdir(INPUT_DIR) if f.lower().endswith(('.png', '.jpg', '.jpeg'))]
 random.seed(42)
