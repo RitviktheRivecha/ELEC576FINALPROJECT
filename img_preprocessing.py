@@ -16,7 +16,7 @@ print(f"OUTPUT_DIR: {OUTPUT_DIR}")
 
 #resize
 TARGET_SIZE = (256, 256)
-NUM_IMAGES_TO_SAMPLE = 100
+NUM_IMAGES_TO_SAMPLE = 500
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 PROCESSED_IMAGES_DIR = os.path.join(OUTPUT_DIR, "images")
@@ -24,13 +24,12 @@ os.makedirs(PROCESSED_IMAGES_DIR, exist_ok=True)
 
 annotations = []
 
-#fixed sample of 100 images
+#fixed sample of images
 print("Sampling images...")
 all_files = [f for f in os.listdir(INPUT_DIR) if f.lower().endswith(('.png', '.jpg', '.jpeg'))]
-random.seed(42)
+random.seed(62302)
 sampled_files = random.sample(all_files, NUM_IMAGES_TO_SAMPLE)
 
-#we don't need detailed annotations for this project, so just "A hand" will suffice
 print("Processing images...")
 for filename in tqdm(sampled_files):
     try:
@@ -41,7 +40,7 @@ for filename in tqdm(sampled_files):
         img_resized.save(output_path, format="JPEG")
         annotations.append({
             "image": filename,
-            "caption": "A hand against a blank white background."
+            "caption": "A living room interior with couches furnished with pillows, a coffee table, lamps, paintings as wall decorations, and large windows letting in sunlight"
         })
     except Exception as e:
         print(f"Error processing {filename}: {e}")
